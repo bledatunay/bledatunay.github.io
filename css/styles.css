@@ -264,7 +264,7 @@ ul.social a {text-indent:-9000px; text-decoration:none; height:24px; width:24px;
 
 .pbar-container {position:relative;	margin-left:50px; height:40px;}
 
-.pbar {	height:40px; margin-bottom:0px;	overflow:hidden; background-color:#f3f3f3; border-radius:0px; -webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1); box-shadow:inset 0 1px 2px rgba(0,0,0,.1)}
+.pbar {	height:40px; margin-bottom:0px;	overflow:hidden; background-color:#efefef; border-radius:0px; -webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1); box-shadow:inset 0 2px 3px rgba(0,0,0,.1)}
 .pbar p {font-size:15px; font-style:normal; text-align:center; color:#fff; padding:10px 10px 0 10px;}
 .pbar-bar {height:100%; background-image:none;}
 .pbar-text {color:white; width:inherit; top:0; bottom:0; padding-top:11px; text-align:center; background:inherit; font-size:16px; position:absolute; opacity:0; -webkit-transition: opacity .4s ease-out; -moz-transition: opacity .4s ease-out; -o-transition: opacity .4s ease-out; -ms-transition: opacity .4s ease-out; transition: opacity .4s ease-out;}
