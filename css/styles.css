@@ -32,14 +32,14 @@ hr {background-color: #2b2b2b; border: none; height: 1px; margin-top:20px; margi
 /* =Education
 --------------------------------------------------------------------------------------------------------*/
 
-.about_container {height:130px; width:300px; float:left; padding-right:150px;}
+.about_container {height:130px; width:260px; float:left; padding-right:150px;}
 .about_edu_logo {height:100px; width:100px; padding:20px 0 0 30px; float: left; text-align:right}
 .about_edu_logo img {width:100px;}
 .about_edu_date {color: #27558f; font-size: 12px; font-weight:bold; margin-top: 6px;}
 .about_edu_courses {float:left; width:280px; height:auto; }
-h4.about_edu_study {padding:3px 30px 0px 30px;  font-size:16px; margin-top:0px;}
-h5.about_edu_school {padding:3px 30px 0px 30px; font-weight:normal; margin-top:6px; line-height:19px;}
-h5.about_edu_cgpa {padding:3px 30px 0px 30px; font-weight:bold; font-size: 13px; margin-top:1px;}
+h4.about_edu_study {padding:3px 10px 0px 30px;  font-size:16px; margin-top:0px;}
+h5.about_edu_school {padding:3px 10px 0px 30px; font-weight:normal; margin-top:6px; line-height:19px;}
+h5.about_edu_cgpa {padding:3px 10px 0px 30px; font-weight:bold; font-size: 13px; margin-top:1px;}
 
 .about_par_container {width:450px; vertical-align:middle; float:left; padding-bottom:20px; padding-top:20px;}
 h4.about_par_title {padding:6px 30px 0px 30px;  font-size:16px;}
@@ -66,7 +66,7 @@ h4.about_par_text {padding:3px 30px 0px 30px;  font-size:16px;}
 .about_logo {height:130px; width:300px; float: left; padding-bottom:6px;}
 .about_logo img {width:152px; margin: 18px 0px 4px 25px;}
 
-.about_subcomp {height:50px; width:170px; float:left;}
+.about_subcomp {height:50px; width:160px; float:left;}
 .about_subcomp p {font-size:20px; padding:0;}
 .about_subcomp img {width:50px; float:left;}
 
