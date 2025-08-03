@@ -1,6 +1,20 @@
 @charset "utf-8";
 /* CSS Document */
 
+/*@media (min-width: 2560px) {
+  body {
+    transform: scale(1.5);
+    transform-origin: top center;
+  }
+}
+
+@media (min-width: 3840px) {
+  body {
+    transform: scale(2);
+    transform-origin: top center;
+  }
+}*/
+
 /* =Clearfix
 --------------------------------------------------------------------------------------------------------*/
 .clear { clear: both; }
