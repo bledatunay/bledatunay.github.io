@@ -80,9 +80,13 @@ h4.about_par_text {padding:3px 30px 0px 30px;  font-size:16px;}
 .about_logo {height:130px; width:300px; float: left; padding-bottom:6px;}
 .about_logo img {width:152px; margin: 18px 0px 4px 25px;}
 
-.about_subcomp {height:50px; width:160px; float:left;}
-.about_subcomp p {font-size:20px; padding:0;}
-.about_subcomp img {width:50px; float:left;}
+.about_subcomp {padding: 16px 0 20px 70px; height:50px; width:220px; float:left;}
+.about_subcomp_l {width:24px; height:50px; float:left;}
+.about_subcomp_l div {background:black;}
+.about_subcomp_t1 {padding:0; font-size:14px; margin:4px 0px 0px 60px;}
+.about_subcomp_t2 {padding:0; font-size:16px; font-weight:bold; margin:-1px 0px 0px 60px;}
+.about_subcomp_img {width:50px; height:50px; padding:0 10px 0 10px; float:left;}
+.about_subcomp_img img {width:50px; float:left;}
 
 /* End Experience
 --------------------------------------------------------------------------------------------------------*/
