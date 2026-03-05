@@ -2,7 +2,7 @@
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-.container { padding:0px; width:640px; position:relative; }
+.container { padding:0; width:640px; position:relative; }
 .element .col2-3 {width:620px; height:387px; margin:0; float:none; }
 .element .col1-3.white-right {width:620px; height:auto; margin:0; float:none; padding-bottom:80px; }
 .col1-1 {width:620px; height:auto; }
@@ -34,7 +34,7 @@
 .gdisos img {height:135px;}
 
 
-.container { padding:0px; width:320px; position:relative; }
+.container { padding:0; width:320px; position:relative; }
 .col1-1 {width:300px; height:auto; }
 .col1-2 {width:300px; height:auto; }
 .element .col1-2 {width:300px; height:300px; margin:0; float:left; }
@@ -56,7 +56,7 @@ h1#logo { position:relative; float:left; margin-top:29px; margin-left:10px; marg
 #nav-button {display:block; background:#11191f; float:right; padding:40px 10px 30px 30px; text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25); width:26px; margin:0 auto; margin-right:10px; cursor:pointer; }
 .nav-bar {background-color:#f5f5f5; border-radius:1px; box-shadow:0 1px 0 rgba(0, 0, 0, 0.25); display:block; width:25px; height:3px; margin:3px auto; }
 #options { display:none;}
-#options ul { padding-top:0px; }
+#options ul { padding-top:0; }
 #options li { float:none; }
 #options li a { border-bottom:1px solid #000; width:240px; padding:10px 20px; }
 #options li a:hover, #options li a:focus {background:#21292f; }
