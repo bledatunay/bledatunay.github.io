@@ -195,6 +195,7 @@ h3 {padding-top:18px; padding-bottom:6px; color:#333;}
 --------------------------------------------------------------------------------------------------------*/
 ul.list { position:relative; font-style:italic; padding:14px 30px 0 30px; }
 ul.falist { position:relative; font-style:italic; padding:16px 30px 0 18px; line-height:125%; margin-left:30px;}
+ul.ofrlist { position:relative; font-style:italic; padding:0px 30px 0 18px; line-height:125%; margin-left:30px;}
 ul.list li { line-height:1.5; width:auto; padding-left:20px; background:url(../images/icons/bg-bullet.png) no-repeat 5px 8px; background-size:6px 6px; }
 ul.check li { background:url(../images/icons/bg-check.png) no-repeat 1px 13px; background-size:13px 11px; }
 /* =End Lists
