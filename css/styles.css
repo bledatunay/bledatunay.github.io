@@ -106,7 +106,7 @@ p.blockquote { font-family: 'Roboto', sans-serif; font-style:italic; font-weight
 a {text-decoration:none; color:#333;}
 a:hover { text-decoration:none; color:#333; }
 span.arrow {font:13px 'Roboto', sans-serif; }
-input, textarea, select { padding:6px 4px 4px 6px; width:210px; height:18px; font-family:'Roboto', sans-serif; font-size:15px; border:1px solid #2b2b2b;  -webkit-transition: all 0.2s ease 0s; -moz-transition: all 0.2s ease 0s; -o-transition: all 0.2s ease 0s; transition: all 0.2s ease 0s; float:none; display:block;}
+input, textarea, select { padding:6px 4px 4px 6px; width:228px; height:18px; font-family:'Roboto', sans-serif; font-size:15px; border:1px solid #2b2b2b;  -webkit-transition: all 0.2s ease 0s; -moz-transition: all 0.2s ease 0s; -o-transition: all 0.2s ease 0s; transition: all 0.2s ease 0s; float:none; display:block;}
 /* End Typography
 --------------------------------------------------------------------------------------------------------*/
 
@@ -316,8 +316,8 @@ ul.social a {text-indent:-9000px; text-decoration:none; height:24px; width:24px;
 .soim {position:absolute; -webkit-transition: opacity .4s ease-out; -moz-transition: opacity .4s ease-out; -o-transition: opacity .4s ease-out; -ms-transition: opacity .4s ease-out; transition: opacity .4s ease-out; width:34px; height:34px;}
 .top:hover{opacity: 0;}
 
-.field {float:left; width:230px; height:30px; padding-bottom:6px;}
-.button {width:150px; height:34px; font-size: 18px; font-family: inherit; background:#fff; border: 1px solid #2b2b2b; cursor: pointer; position: relative; -webkit-transition: all 0.5s ease; -moz-transition: all 0.5s ease; transition: all 0.5s ease;}
+.field {float:left; width:246px; height:30px; padding-bottom:6px;}
+.button {width:150px; height:34px; font-size: 18px; font-family: inherit; background:#fff; color:#111; border: 1px solid #2b2b2b; cursor: pointer; position: relative; -webkit-transition: all 0.5s ease; -moz-transition: all 0.5s ease; transition: all 0.5s ease;}
 .button i {padding-left:8px;}
 .button:hover {background:#2b2b2b; color:#fff;}
 .button.disabled, button[disabled] {opacity:0.4;}

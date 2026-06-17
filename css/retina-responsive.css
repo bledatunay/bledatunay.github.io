@@ -23,6 +23,7 @@
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 767px) {
 
+.button:hover {background:#fff; color:#111;}
 
 .gamedetails img {width:80%;}
 .gamedetailslandscape img {width:80%;}
