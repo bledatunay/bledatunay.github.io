@@ -128,19 +128,19 @@ h3 {padding-top:18px; padding-bottom:6px; color:#333;}
 #wrapper { margin-top:0; width:100%; background:#11191f; position:relative; z-index:29; margin:0 auto; margin-bottom:20px; }
 .container { padding:0; width:960px; position:relative; margin:0 auto;}
 
-.col1-1 { width:940px; margin:10px; float:left; background:white;}
-.col1-2 { width:940px; height:300px; margin:10px; float:left; background:white;}
+.col1-1 { width:940px; margin:10px; float:left; border-radius: 12px; overflow:hidden;}
+.col1-2 { width:940px; height:300px; margin:10px; float:left; border-radius:0 12px 12px 0; overflow:hidden;}
 .element .col1-2 {width:410px; height:300px; margin:0; float:left; }
-.element .col1-2.connect {width:530px; height:300px; margin:0; float:left; }
-.col1-3 { width:300px; height:400px; margin:10px; float:left; background:white;}
-.element .col1-3 {width:300px; height:400px; margin:0; float:left; }
-.element .col1-3.connect {width:320px; height:400px; margin:0; float:left; }
+.element .col1-2.connect {width:530px; height:300px; margin:0; float:left; border-radius:12px 0px 0px 12px; overflow:hidden;}
+.col1-3 { width:300px; height:400px; margin:10px; float:left; border-radius: 12px; overflow:hidden;}
+.element .col1-3 {width:300px; height:400px; margin:0; float:left; border-radius: 0 12px 12px 0; overflow:hidden;}
+.element .col1-3.connect {width:320px; height:400px; margin:0; float:left; border-radius:12px 0 0 12px; overflow:hidden;}
 
-.col2-3 { width:620px; height:400px; margin:10px; float:left; background:white;}
+.col2-3 { width:620px; height:400px; margin:10px; float:left; border-radius:12px; overflow:hidden;}
 .element .col2-3 {width:640px; height:400px; margin:0; }
 .col2-3.det, .col2-3.auto, .col1-3.auto, .col1-1.auto {height:auto; }
 
-.col-text {background:#fff; position:relative; }
+.col-text {background:#fff; position:relative; height:400px;}
 
 .highlightgame img {height:300px; width:530px;}
 
@@ -252,7 +252,7 @@ ul.social a {text-indent:-9000px; text-decoration:none; height:24px; width:24px;
 --------------------------------------------------------------------------------------------------------*/
 #backtotop { height:auto; position:fixed; right:30px; bottom:30px; display:none; z-index:30; }
 #backtotop ul { padding:15px 0; }
-#backtotop ul li a { background:#fff; display:block; width:50px; height:50px; float:right; right:10px; text-indent:-9000px; -webkit-box-shadow:0 0 12px rgba(0, 0, 0, 0.3); -moz-box-shadow:0 0 12px rgba(0, 0, 0, 0.3); box-shadow:0 0 12px rgba(0, 0, 0, 0.3); -webkit-transition: all; -moz-transition: all; -ms-transition: all; -o-transition: all; transition: all;}
+#backtotop ul li a { background:#fff; display:block; width:50px; height:50px; float:right; right:10px; text-indent:-9000px; -webkit-box-shadow:0 0 12px rgba(0, 0, 0, 0.3); -moz-box-shadow:0 0 12px rgba(0, 0, 0, 0.3); box-shadow:0 0 12px rgba(0, 0, 0, 0.3); -webkit-transition: all; -moz-transition: all; -ms-transition: all; -o-transition: all; transition: all; border-radius:12px;}
 #backtotop ul li a:hover { -webkit-box-shadow:0 0 20px rgba(0, 0, 0, 0.2); -moz-box-shadow:0 0 20px rgba(0, 0, 0, 0.2); box-shadow:0 0 20px rgba(0, 0, 0, 0.2); }
 #backtotop img {position:absolute; left:0; right:0; margin:auto; width:24px; margin-top:16px;}
 /* End Backtotop
@@ -317,7 +317,7 @@ ul.social a {text-indent:-9000px; text-decoration:none; height:24px; width:24px;
 .top:hover{opacity: 0;}
 
 .field {float:left; width:246px; height:30px; padding-bottom:6px;}
-.button {width:150px; height:34px; font-size: 18px; font-family: inherit; background:#fff; color:#111; border: 1px solid #2b2b2b; cursor: pointer; position: relative; -webkit-transition: all 0.5s ease; -moz-transition: all 0.5s ease; transition: all 0.5s ease;}
+.button {width:150px; height:34px; font-size: 18px; font-family: inherit; background:#fff; color:#111; border: 1px solid #2b2b2b; cursor: pointer; position: relative; -webkit-transition: all 0.5s ease; -moz-transition: all 0.5s ease; transition: all 0.5s ease; border-radius:6px;}
 .button i {padding-left:8px;}
 .button:hover {background:#2b2b2b; color:#fff;}
 .button.disabled, button[disabled] {opacity:0.4;}

@@ -6,9 +6,9 @@
 .element .col2-3 {width:620px; height:387px; margin:0; float:none; }
 .element .col1-3.white-right {width:620px; height:auto; margin:0; float:none; padding-bottom:80px; }
 .col1-1 {width:620px; height:auto; }
-.col1-2 {width:620px; height:auto; }
+.col1-2 {width:620px; height:auto; border-radius:0 0 12px 12px;}
 .element .col1-2 {width:620px; height:250px; margin:0; float:left; }
-.element .col1-2.connect {width:620px; height:350px; float:none; }
+.element .col1-2.connect {width:620px; height:350px; float:none; border-radius:12px 12px 0 0;}
 #options li a {font-size:18px; padding:8px 10px; }
 
 .gamedetails img {width:44%;}
@@ -36,14 +36,15 @@
 
 
 .container { padding:0; width:320px; position:relative; }
-.col1-1 {width:300px; height:auto; }
-.col1-2 {width:300px; height:auto; }
+.col1-1 {width:300px; height:auto;}
+.col1-2 {width:300px; height:auto; border-radius:0 0 12px 12px;}
 .element .col1-2 {width:300px; height:300px; margin:0; float:left; }
-.element .col1-2.connect {width:300px; height:auto; float:none; }
+.element .col1-2.connect {width:300px; height:auto; float:none; border-radius:12px 12px 0 0;}
 .col2-3 { width:300px; height:auto; margin:10px; float:left;}
 .element .col2-3 {width:300px; height:187px; margin:0; float:none; }
+.element .col1-3 {border-radius:0 0 12px 12px; overflow:hidden;}
 .element .col1-3.white-right, .element .col1-3.white-right2 {width:300px; height:400px; margin:0; float:none;}
-.element .col1-3.connect {width:300px; height:auto; float:none; }
+.element .col1-3.connect {width:300px; height:auto; float:none; border-radius:0; overflow:hidden;}
 .about_exp_info p {padding-left:30px;}
 .contactform {height:440px;}
 
