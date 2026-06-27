@@ -1,203 +1,94 @@
 jQuery(window).load(function(){
 
-if ( $('.flexslider')[0] ) {
+  var defaultOptions = {
+    filter: '.home',
+    sortBy: 'original-order',
+    sortAscending: true,
+    layoutMode: 'masonry'
+  };
+
+  if ( $('.flexslider')[0] ) {
     jQuery('.flexslider').flexslider({
-    animation: "slide",
-    start: function(slider){
-var $container = $('#container'),
-          // object that will keep track of options
-          isotopeOptions = {},
-          // defaults, used if not explicitly set in hash
-          defaultOptions = {
-            filter: '.home',
-            sortBy: 'original-order',
-            sortAscending: true,
-            layoutMode: 'masonry'
-          };
-//$container.imagesLoaded( function(){
-      $container.isotope({
-        itemSelector : '.element',
-        masonry: { columnWidth: $container.width() / 12 }
-      
-    		  });
-  
-  
-				
-  
-      var $optionSets = $('#options').find('.option-set'),
-          isOptionLinkClicked = false;
-  
-      // switches selected class on buttons
-      function changeSelectedLink( $elem ) {
-        // remove selected class on previous item
-        $elem.parents('.option-set').find('.selected').removeClass('selected');
-        // set selected class on new item
-        $elem.addClass('selected');
+      animation: "slide",
+      start: function(slider){
+        var $container = $('#container');
+        
+        $container.isotope({
+          itemSelector : '.element',
+          masonry: { columnWidth: $container.width() / 12 },
+          filter: defaultOptions.filter,
+          sortBy: defaultOptions.sortBy,
+          sortAscending: defaultOptions.sortAscending,
+          layoutMode: defaultOptions.layoutMode
+        });
+    
+        setupGlobalFilters($container);
       }
-  
-  
-	$optionSets.find('a[href^="#filter"]').click(function(){
-        var $this = $(this);
-        // don't proceed if already selected
-        if ( $this.hasClass('selected') ) {
-          return;
-        }
-        changeSelectedLink( $this );
-            // get href attr, remove leading #
-        var href = $this.attr('href').replace( /^#/, '' ),
-            // convert href into object
-            // i.e. 'filter=.inner-transition' -> { filter: '.inner-transition' }
-            option = $.deparam( href, true );
-        // apply new option to previous
-        $.extend( isotopeOptions, option );
-        // set hash, triggers hashchange on window
-        $.bbq.pushState( isotopeOptions );
-        isOptionLinkClicked = true;
-        return false;
+    });
+  } else {
+    var $container = $('#container');
+    
+    $container.isotope({
+      itemSelector : '.element',
+      masonry: { columnWidth: $container.width() / 12 },
+      filter: defaultOptions.filter,
+      sortBy: defaultOptions.sortBy,
+      sortAscending: defaultOptions.sortAscending,
+      layoutMode: defaultOptions.layoutMode
+    });
+
+    setupGlobalFilters($container);
+  }
+
+  function setupGlobalFilters($container) {
+    var $optionSets = $('#options').find('.option-set');
+
+    function changeSelectedLink( $elem ) {
+      // 1. Remove selected from the clicked link's local menu group
+      $elem.parents('.option-set').find('.selected').removeClass('selected');
+      $elem.addClass('selected');
+
+      // 2. Sync active classes globally: find ANY matching filter link on the page and light it up
+      var currentHref = $elem.attr('href');
+      $('a[href="' + currentHref + '"]').each(function() {
+        $(this).parents('.option-set').find('.selected').removeClass('selected');
+        $(this).addClass('selected');
       });
+    }
 
-      var hashChanged = false;
-
-      $(window).bind( 'hashchange', function( event ){
-        // get options object from hash
-        var hashOptions = window.location.hash ? $.deparam.fragment( window.location.hash, true ) : {},
-            // do not animate first call
-            aniEngine = hashChanged ? 'best-available' : 'none',
-            // apply defaults where no option was specified
-            options = $.extend( {}, defaultOptions, hashOptions, { animationEngine: aniEngine } );
-        // apply options from hash
-        $container.isotope( options );
-        // save options
-        isotopeOptions = hashOptions;
-    
-        // if option link was not clicked
-        // then we'll need to update selected links
-        if ( !isOptionLinkClicked ) {
-          // iterate over options
-          var hrefObj, hrefValue, $selectedLink;
-          for ( var key in options ) {
-            hrefObj = {};
-            hrefObj[ key ] = options[ key ];
-            // convert object into parameter string
-            // i.e. { filter: '.inner-transition' } -> 'filter=.inner-transition'
-            hrefValue = $.param( hrefObj );
-            // get matching link
-            $selectedLink = $optionSets.find('a[href="#' + hrefValue + '"]');
-            changeSelectedLink( $selectedLink );
-          }
-        }
-    
-        isOptionLinkClicked = false;
-        hashChanged = true;
-      })
-        // trigger hashchange to capture any hash data on init
-		
-        .trigger('hashchange');
-		
-		
-		return false;
-//		});
-}
-  });
-} else {
-	      var $container = $('#container'),
-          // object that will keep track of options
-          isotopeOptions = {},
-          // defaults, used if not explicitly set in hash
-          defaultOptions = {
-            filter: '.home',
-            sortBy: 'original-order',
-            sortAscending: true,
-            layoutMode: 'masonry'
-          };
-//$container.imagesLoaded( function(){
-      $container.isotope({
-        itemSelector : '.element',
-        masonry: { columnWidth: $container.width() / 12 }
+    $(document).off('click', 'a[href*="filter="]').on('click', 'a[href*="filter="]', function(e){
+      e.preventDefault(); 
+      e.stopImmediatePropagation(); // Stops the BBQ plugin from hearing this click event!
       
-    		  });
-  
-      var $optionSets = $('#options').find('.option-set'),
-          isOptionLinkClicked = false;
-  
-      // switches selected class on buttons
-      function changeSelectedLink( $elem ) {
-        // remove selected class on previous item
-        $elem.parents('.option-set').find('.selected').removeClass('selected');
-        // set selected class on new item
-        $elem.addClass('selected');
+      var $this = $(this);
+      changeSelectedLink( $this );
+      
+      var href = $this.attr('href');
+      var hashPart = href.substring(href.indexOf('#')); 
+      
+      var filterValue = decodeURIComponent(hashPart.replace('#filter=', '').replace(/\+/g, ' '));
+      
+      // Update Isotope directly
+      $container.isotope({ filter: filterValue });
+
+      // FORCE STRIP URL: Replaces the address bar layout instantly with zero hash traces
+      if (history.replaceState) {
+        history.replaceState(null, document.title, window.location.pathname + window.location.search);
       }
-  
-  
-	$optionSets.find('a[href^="#filter"]').click(function(){
-        var $this = $(this);
-        // don't proceed if already selected
-        if ( $this.hasClass('selected') ) {
-          return;
-        }
-        changeSelectedLink( $this );
-            // get href attr, remove leading #
-        var href = $this.attr('href').replace( /^#/, '' ),
-            // convert href into object
-            // i.e. 'filter=.inner-transition' -> { filter: '.inner-transition' }
-            option = $.deparam( href, true );
-        // apply new option to previous
-        $.extend( isotopeOptions, option );
-        // set hash, triggers hashchange on window
-        $.bbq.pushState( isotopeOptions );
-        isOptionLinkClicked = true;
-        return false;
-      });
+      
+      return false;
+    });
 
-      var hashChanged = false;
-
-      $(window).bind( 'hashchange', function( event ){
-        // get options object from hash
-        var hashOptions = window.location.hash ? $.deparam.fragment( window.location.hash, true ) : {},
-            // do not animate first call
-            aniEngine = hashChanged ? 'best-available' : 'none',
-            // apply defaults where no option was specified
-            options = $.extend( {}, defaultOptions, hashOptions, { animationEngine: aniEngine } );
-        // apply options from hash
-        $container.isotope( options );
-        // save options
-        isotopeOptions = hashOptions;
+    // Kill any lingering hash values if a user somehow loads the page with one
+    if (window.location.hash.indexOf('filter=') !== -1 && history.replaceState) {
+      history.replaceState(null, document.title, window.location.pathname + window.location.search);
+    }
+  }
     
-        // if option link was not clicked
-        // then we'll need to update selected links
-        if ( !isOptionLinkClicked ) {
-          // iterate over options
-          var hrefObj, hrefValue, $selectedLink;
-          for ( var key in options ) {
-            hrefObj = {};
-            hrefObj[ key ] = options[ key ];
-            // convert object into parameter string
-            // i.e. { filter: '.inner-transition' } -> 'filter=.inner-transition'
-            hrefValue = $.param( hrefObj );
-            // get matching link
-            $selectedLink = $optionSets.find('a[href="#' + hrefValue + '"]');
-            changeSelectedLink( $selectedLink );
-          }
-        }
-    
-        isOptionLinkClicked = false;
-        hashChanged = true;
-      })
-        // trigger hashchange to capture any hash data on init
-		
-        .trigger('hashchange');
-		
-		
-		return false;
-//		});
-}
-  
 });
-
 
 jQuery(window).load(function(){
-	setTimeout(function(){
-		jQuery('#container').isotope('reLayout');
-	}, 1000);
+  setTimeout(function(){
+    jQuery('#container').isotope('reLayout');
+  }, 1000);
 });
-
