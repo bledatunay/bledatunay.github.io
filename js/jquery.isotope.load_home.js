@@ -7,6 +7,14 @@ jQuery(window).load(function(){
     layoutMode: 'masonry'
   };
 
+  // --- NEW: Read the hash on page load ---
+  var initialFilter = defaultOptions.filter;
+  if (window.location.hash && window.location.hash.indexOf('filter=') !== -1) {
+    var hashPart = window.location.hash;
+    initialFilter = decodeURIComponent(hashPart.replace('#filter=', '').replace(/\+/g, ' '));
+  }
+  // ----------------------------------------
+
   if ( $('.flexslider')[0] ) {
     jQuery('.flexslider').flexslider({
       animation: "slide",
@@ -16,7 +24,7 @@ jQuery(window).load(function(){
         $container.isotope({
           itemSelector : '.element',
           masonry: { columnWidth: $container.width() / 12 },
-          filter: defaultOptions.filter,
+          filter: initialFilter, // Use the detected initial filter
           sortBy: defaultOptions.sortBy,
           sortAscending: defaultOptions.sortAscending,
           layoutMode: defaultOptions.layoutMode
@@ -31,7 +39,7 @@ jQuery(window).load(function(){
     $container.isotope({
       itemSelector : '.element',
       masonry: { columnWidth: $container.width() / 12 },
-      filter: defaultOptions.filter,
+      filter: initialFilter, // Use the detected initial filter
       sortBy: defaultOptions.sortBy,
       sortAscending: defaultOptions.sortAscending,
       layoutMode: defaultOptions.layoutMode
@@ -56,6 +64,16 @@ jQuery(window).load(function(){
       });
     }
 
+    // --- NEW: Highlight the active link on page load if a hash exists ---
+    if (window.location.hash && window.location.hash.indexOf('filter=') !== -1) {
+      // Find the link that matches the current hash and trigger the visual selection
+      var $matchingLink = $('a[href*="' + window.location.hash + '"]').first();
+      if ($matchingLink.length) {
+        changeSelectedLink($matchingLink);
+      }
+    }
+    // -------------------------------------------------------------------
+
     $(document).off('click', 'a[href*="filter="]').on('click', 'a[href*="filter="]', function(e){
       e.preventDefault(); 
       e.stopImmediatePropagation(); // Stops the BBQ plugin from hearing this click event!
@@ -79,7 +97,7 @@ jQuery(window).load(function(){
       return false;
     });
 
-    // Kill any lingering hash values if a user somehow loads the page with one
+    // Clean up the hash from the address bar AFTER everything has been initialized
     if (window.location.hash.indexOf('filter=') !== -1 && history.replaceState) {
       history.replaceState(null, document.title, window.location.pathname + window.location.search);
     }
